@@ -22,7 +22,7 @@ const Cart = () => {
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id
-      
+
     })
   };
 
@@ -55,7 +55,8 @@ const Cart = () => {
         </ScrollArea>
       </div>
 
-      <div className="flex flex-col gap-3">
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
         <Separator />
         <div className="flex items-center justify-between text-xs">
           <p>Subtotal</p>
@@ -84,6 +85,7 @@ const Cart = () => {
           Finalizar compra
         </Button>
       </div>
+      )}
     </div>
   );
 };
