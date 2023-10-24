@@ -5,12 +5,14 @@ import { cartContext } from "@/providers/cart";
 import CartItem from "./cart-item";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { Separator } from "./separator";
+import { ScrollArea } from "./scroll-area";
+import { Button } from "./button";
 
 const Cart = () => {
   const { products, subTotal, total, totalDiscount } = useContext(cartContext);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex h-full flex-col gap-8">
       <Badge
         variant={"outline"}
         className="w-fit gap-1 border-2 px-3 py-[0.375rem] text-base uppercase"
@@ -19,19 +21,23 @@ const Cart = () => {
         Carrinho
       </Badge>
 
-      <div className="flex flex-col gap-5">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <CartItem
-              key={product.id}
-              product={computeProductTotalPrice(product as any) as any}
-            />
-          ))
-        ) : (
-          <p className="text-center font-semibold">
-            Nenhum produto adicionado ao carrinho.
-          </p>
-        )}
+      <div className="flex h-full flex-col gap-5 overflow-hidden">
+        <ScrollArea className="h-full">
+          <div className="flex h-full flex-col gap-8">
+            {products.length > 0 ? (
+              products.map((product) => (
+                <CartItem
+                  key={product.id}
+                  product={computeProductTotalPrice(product as any) as any}
+                />
+              ))
+            ) : (
+              <p className="text-center font-semibold">
+                Nenhum produto adicionado ao carrinho.
+              </p>
+            )}
+          </div>
+        </ScrollArea>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -56,6 +62,7 @@ const Cart = () => {
           <p>R$ {total.toFixed(2)}</p>
         </div>
         <Separator />
+        <Button className="uppercase font-bold mt-7">Finalizar compra</Button>
       </div>
     </div>
   );
