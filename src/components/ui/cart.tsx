@@ -22,6 +22,7 @@ const Cart = () => {
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id
+      
     })
   };
 
