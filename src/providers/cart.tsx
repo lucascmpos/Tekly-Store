@@ -5,7 +5,9 @@ import { createContext, ReactNode, useMemo, useState } from "react";
 
 export interface CartProduct extends ProductWithTotalPrice {
   quantity: number;
-  name: string
+  name: string,
+  description: string
+  imageUrls: string[]
 }
 
 interface ICartContext {

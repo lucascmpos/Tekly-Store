@@ -1,4 +1,3 @@
-import { prismaClient } from "@/lib/prisma"
 import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
@@ -30,8 +29,6 @@ export const POST = async (request: Request) => {
             },
         )
         const lineItems = sessionWithLineItems.line_items
-
-        await prismaClient
     }
 
     return NextResponse.json({received: true})
