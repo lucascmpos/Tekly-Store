@@ -1,6 +1,6 @@
 import { ShoppingCartIcon } from "lucide-react";
 import { Badge } from "./badge";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { cartContext } from "@/providers/cart";
 import CartItem from "./cart-item";
 import { computeProductTotalPrice } from "@/helpers/product";
@@ -12,15 +12,24 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const { products, subTotal, total, totalDiscount } = useContext(cartContext);
+  const [isFinishing, setIsFinishing] = useState(false);
 
   const handleFinishPurchaseClick = async () => {
+    setIsFinishing(true);
     const checkout = await createCheckout(products);
+    
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
     });
+    setTimeout(() => {
+      setIsFinishing(false); 
+      stripe?.redirectToCheckout({
+        sessionId: checkout.id,
+      });
+    }, 1000);
   };
 
   return (
@@ -78,8 +87,9 @@ const Cart = () => {
           <Button
             className="mt-7 font-bold uppercase"
             onClick={handleFinishPurchaseClick}
+            disabled={isFinishing}
           >
-            Finalizar compra
+            {isFinishing ? "Finalizando..." : "Finalizar compra"}
           </Button>
         </div>
       )}

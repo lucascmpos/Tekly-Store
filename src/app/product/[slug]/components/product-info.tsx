@@ -7,15 +7,13 @@ import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
 import { useContext, useState } from "react";
 
 interface ProductInfoProps {
-  product: ProductWithTotalPrice
+  product: ProductWithTotalPrice;
 }
 
-const ProductInfo = ({
-  product
-}: ProductInfoProps) => {
+const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
-
-  const {addProductToCart} = useContext(cartContext)
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const { addProductToCart } = useContext(cartContext);
 
   const handleDecreaseQuantityClick = () => {
     setQuantity((prev) => (prev === 1 ? prev : prev - 1));
@@ -26,17 +24,22 @@ const ProductInfo = ({
   };
 
   const handleAddToCartClick = () => {
-    addProductToCart({...product, quantity})
-  }
+    addProductToCart({ ...product, quantity });
+    setIsAddingToCart(true)
+
+    setTimeout(() => {
+      setIsAddingToCart(false)
+    }, 1500);
+  };
 
   return (
     <div className="flex flex-col px-5">
       <h2 className="text-lg">{product.name}</h2>
       <div className="flex items-center gap-2">
-        <h1 className="text-cl font-bold">R$ {product.totalPrice.toFixed(2)}</h1>
-        <DiscountBadge>
-          {product.discountPercentage}
-        </DiscountBadge>
+        <h1 className="text-cl font-bold">
+          R$ {product.totalPrice.toFixed(2)}
+        </h1>
+        <DiscountBadge>{product.discountPercentage}</DiscountBadge>
       </div>
       {product.discountPercentage > 0 && (
         <p className="text-sm line-through opacity-75">
@@ -67,19 +70,27 @@ const ProductInfo = ({
         <p className="text-justify text-sm opacity-60">{product.description}</p>
       </div>
 
-      <Button onClick={handleAddToCartClick} className="mt-8 font-bold uppercase">
-        Adicionar ao carrinho
+      <Button
+        onClick={handleAddToCartClick}
+        className="mt-8 font-bold uppercase"
+        disabled={isAddingToCart}
+      >
+        {isAddingToCart ? "Produto adicionado ao carrinho!" : "Adicionar ao carrinho"}
       </Button>
 
-      <div className="rounded-lg bg-accent flex items-center px-5 py-2 mt-5 justify-between">
+      <div className="mt-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
         <div className="flex items-center gap-3">
-            <TruckIcon />
-            <div className="flex flex-col">
-                <p className="text-xs">Entrega via <span className="font-bold">LCPacket®</span></p>
-                <p className="text-[#8162FF] text-xs">Envio para <span className="font-bold">todo Brasil</span></p>
-            </div>
+          <TruckIcon />
+          <div className="flex flex-col">
+            <p className="text-xs">
+              Entrega via <span className="font-bold">LCPacket®</span>
+            </p>
+            <p className="text-xs text-[#8162FF]">
+              Envio para <span className="font-bold">todo Brasil</span>
+            </p>
+          </div>
         </div>
-        <p className="font-bold text-xs">Frete grátis</p>
+        <p className="text-xs font-bold">Frete grátis</p>
       </div>
     </div>
   );
