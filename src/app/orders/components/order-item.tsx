@@ -7,11 +7,14 @@ import {
 import { Card } from "@/components/ui/card";
 import { Prisma } from "@prisma/client";
 import {format} from 'date-fns'
+import OrderProductItem from "./order-product.-item";
 
 interface OrdemItemProps {
   order: Prisma.OrderGetPayload<{
     include: {
-      orderProducts: true;
+      orderProducts: {
+        include: {product: true}
+      }
     };
   }>;
 }
@@ -27,11 +30,11 @@ const OrderItem = ({ order }: OrdemItemProps) => {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
                     <div className="font-bold">
                         <p>Status</p>
-                        <p className="text-[#8162FF]">{order.status}</p>
+                        <p className="text-[#8162FF] pb-1">{order.status}</p>
                     </div>
                     <div>
                         <p className="font-bold">Data</p>
@@ -42,6 +45,10 @@ const OrderItem = ({ order }: OrdemItemProps) => {
                         <p className="opacity-60">Cartão</p>
                     </div>
                 </div>
+
+                {order.orderProducts.map((OrderProduct) => (
+                    <OrderProductItem key={OrderProduct.id} orderProduct={OrderProduct} />
+                ))}
             </div>
           </AccordionContent>
         </AccordionItem>

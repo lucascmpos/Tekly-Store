@@ -14,25 +14,27 @@ const OrderPage = async () => {
 
   const orders = await prismaClient.order.findMany({
     where: {
-        userId: (user as any).id
+      userId: (user as any).id,
     },
-    include:{
-        orderProducts: true,
-    }
-  })
+    include: {
+      orderProducts: {
+        include: { product: true },
+      },
+    },
+  });
   return (
     <div className="p-5">
       <Badge
         variant={"outline"}
-        className="w-fit gap-1 border-2 px-3 py-[0.375rem] text-base uppercase"
+        className="mb-2 w-fit gap-1 border-2 px-3 py-[0.375rem] text-base uppercase"
       >
         <PackageSearchIcon size={16} />
         Meus Pedidos
       </Badge>
-        <div className="flex flex-col gap-5">
-      {orders.map((order) => (
-        <OrderItem key={order.id} order={order} />
-      ))}
+      <div className="flex flex-col gap-5">
+        {orders.map((order) => (
+          <OrderItem key={order.id} order={order} />
+        ))}
       </div>
     </div>
   );

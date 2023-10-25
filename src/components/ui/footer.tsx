@@ -7,7 +7,7 @@ const Footer = () => {
         © 2023 Copyright <span className="font-semibold">LCTech Store</span>{" "}
       </p>
 
-      <p>Feito com ❤️ por Lucas Campos</p>
+      <p>Feito por Lucas Campos</p>
     </div>
   );
 };
