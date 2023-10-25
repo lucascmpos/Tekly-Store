@@ -8,6 +8,7 @@ import CartProvider from "@/providers/cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
   title: "LCTech Store",
   description: "LCTech Store made by Lucas Campos",
