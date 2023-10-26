@@ -14,8 +14,8 @@ export const createCheckout = async (
   const checkout = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "payment",
-    success_url: 'http://localhost:3000',
-    cancel_url: 'http://localhost:3000',
+    success_url: "http://lctechstore.netlify.app",
+    cancel_url: "http://lctechstore.netlify.app",
     metadata: {
       orderId,
     },
