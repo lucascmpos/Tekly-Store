@@ -31,7 +31,7 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col gap-8 py-8">
+    <div className="flex flex-col gap-8 py-8 lg:justify-center">
       <Link href={"/deals"}>
         <PromoBanner
           src="/banner-inicial-home-01.png"
@@ -53,7 +53,7 @@ export default async function Home() {
           alt="Até 55% de desconto em mouses!"
         />
       </Link>
-      <div className="mt-3">
+      <div className="mt-3 lg:mx-auto">
         <Link href="/category/keyboards">
           <SectionTitle>Teclados</SectionTitle>
         </Link>
@@ -67,7 +67,7 @@ export default async function Home() {
           />
         </Link>
       </div>
-      <div className="">
+      <div className="lg:mx-auto">
         <Link href="/category/mouses">
           <SectionTitle>Mouses</SectionTitle>
         </Link>

@@ -11,10 +11,10 @@ interface CategoryItemProps {
 const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
     <Link href={`/category/${category.slug}`}>
-      <div>
+      <div className="lg:mx-auto lg:w-2/4">
         <Badge
           variant="outline"
-          className="flex items-center justify-center gap-2 rounded-lg py-3 cursor-pointer"
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-lg py-3"
         >
           {CATEGORY_ICON[category.slug as keyof typeof CATEGORY_ICON]}
           <span className="text-xs font-bold">{category.name}</span>

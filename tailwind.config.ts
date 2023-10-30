@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "category-item-gradient":
-          "linear-gradient(45deg, #5033C3 0%, rgba(80, 51, 195, 0.20) 100%);"
+          "linear-gradient(45deg, #5033C3 0%, rgba(80, 51, 195, 0.20) 100%);",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -77,4 +77,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
