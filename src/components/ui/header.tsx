@@ -93,7 +93,6 @@ const Header = () => {
                 <LogOutIcon size={16} />
                 Sair
               </Button>
-              
             )}
 
             <SheetClose asChild>
@@ -149,7 +148,7 @@ const Header = () => {
 
       <Link href="/">
         <h1 className="text-lg font-semibold">
-          <span className="text-primary">LCTech</span> Store
+          <span className="text-primary">PeriWare</span> Store
         </h1>
       </Link>
 
