@@ -1,4 +1,4 @@
-# LCTech Store - Loja de periféricos
+# PeriWare Store - Loja de periféricos
 
 ## Este projeto consiste em uma loja fictícia de periféricos, onde é vendido teclados, mouses, monitores, fones e etc. O usuário pode adicionar e retirar produtos do carrinho, filtrar por categorias e descontos
 
