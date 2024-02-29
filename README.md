@@ -4,6 +4,6 @@
 
 ### Funcionalidades: Login com o google, responsividade, integração com banco de dados SQL, checkout de pagamentos com Stripe
 
-#### Link do deploy: https://lctechstore.netlify.app/
+#### Link do deploy: https://periware-store.vercel.app/
 
 #### Tecnologias: Next.js - Tailwind.css - ShadcnUI - NextAuth -  PostgresSQL - Prisma - Stripe
