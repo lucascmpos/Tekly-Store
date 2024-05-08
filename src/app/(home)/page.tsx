@@ -31,13 +31,15 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col gap-8 py-8 lg:justify-center">
-      <Link href={"/deals"}>
-        <PromoBanner
-          src="/banner-inicial-home-01.png"
-          alt="Até 55% de desconto esse mês!"
-        />
-      </Link>
+    <div className="flex flex-col gap-8 py-8 ">
+      <div className="px-5 pt-6 lg:flex lg:flex-row  lg:justify-center">
+        <Link href={"/deals"}>
+          <PromoBanner
+            src="/banner-inicial-home-01.png"
+            alt="Até 55% de desconto esse mês!"
+          />
+        </Link>
+      </div>
       <div className="px-5">
         <Categories />
       </div>
@@ -47,12 +49,14 @@ export default async function Home() {
         </Link>
         <ProductList products={deals} />
       </div>
-      <Link href={"/deals"}>
-        <PromoBanner
-          src="/banner-home-02.png"
-          alt="Até 55% de desconto em mouses!"
-        />
-      </Link>
+      <div className="px-5 pt-6 lg:flex lg:flex-row  lg:justify-center">
+        <Link href={"/deals"}>
+          <PromoBanner
+            src="/banner-home-02.png"
+            alt="Até 55% de desconto em mouses!"
+          />
+        </Link>
+      </div>
       <div className="mt-3 lg:mx-auto">
         <Link href="/category/keyboards">
           <SectionTitle>Teclados</SectionTitle>
@@ -60,12 +64,14 @@ export default async function Home() {
         <ProductList products={keyboards} />
       </div>
       <div>
-        <Link href={"/deals"}>
-          <PromoBanner
-            src="/banner-home-03.png"
-            alt="Até 20% de desconto em fones!"
-          />
-        </Link>
+        <div className="px-5 pt-6 lg:flex lg:flex-row lg:justify-center">
+          <Link href={"/deals"}>
+            <PromoBanner
+              src="/banner-home-03.png"
+              alt="Até 20% de desconto em fones!"
+            />
+          </Link>
+        </div>
       </div>
       <div className="lg:mx-auto">
         <Link href="/category/mouses">
