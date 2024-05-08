@@ -1,9 +1,69 @@
-# LCTech Store - Loja de periféricos
+<h1 align="center">
+    <img src="https://ik.imagekit.io/4qca61gsh/periwarestore(1).png?updatedAt=1714925968876">
+    
+   
+</h1>
 
-## Este projeto consiste em uma loja fictícia de periféricos, onde é vendido teclados, mouses, monitores, fones e etc. O usuário pode adicionar e retirar produtos do carrinho, filtrar por categorias e descontos
+# Link to the app
 
-### Funcionalidades: Login com o google, responsividade, integração com banco de dados SQL, checkout de pagamentos com Stripe
+[PeriWare Store](https://periware-store.vercel.app/)
 
-#### Link do deploy: https://lctechstore.netlify.app/
+# 🔍 Summary
 
-#### Tecnologias: Next.js - Tailwind.css - ShadcnUI - NextAuth -  PostgresSQL - Prisma - Stripe
+- [About](#-sobre)
+- [Tech Stack](#-tecnologias-utilizadas)
+- [How to download](#-como-baixar-o-projeto)
+
+## 📗 About
+
+This project consists of a fictitious peripherals store, where keyboards, mice, monitors, headphones, etc. are sold. The user can add and remove products from the cart, filter by categories and discounts, complete their order with payment via Stripe
+
+---
+
+## 💻 Functionalities
+
+- Responsiveness (Mobile First)
+- Login with Google
+- Make orders
+- Filter by discounts and categories
+
+---
+
+## 👨‍🚀 Next Updates
+
+- Improve desktop responsiviness
+
+---
+
+## 🚀 Technologies used
+
+The project was developed using the following technologies
+
+- React.js
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Figma
+- PostgreSQL
+- Prisma ORM
+- Supabase
+
+---
+
+## 🎮 How to download
+
+```bash
+
+    # Clone the repository
+    $ git clone https://github.com/lucascmpos/PeriWare-Store
+
+    # Install the dependencies
+    $ npm i
+
+    # Started the project
+    $ npm run dev
+```
+
+---
+
+Developed by 🐉 Lucas Campos
