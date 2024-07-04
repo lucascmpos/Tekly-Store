@@ -14,7 +14,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
       <div className="">
         <Badge
           variant="outline"
-          className="flex cursor-pointer items-center justify-center gap-2 rounded-lg py-3"
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-lg py-3 hover:bg-secondary"
         >
           {CATEGORY_ICON[category.slug as keyof typeof CATEGORY_ICON]}
           <span className="text-xs font-bold">{category.name}</span>

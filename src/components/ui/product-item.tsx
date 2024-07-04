@@ -15,7 +15,7 @@ const ProductItem = ({ product, className }: ProductItemProps) => {
       href={`/product/${product.slug}`}
       className={cn("flex min-w-[156px] flex-col gap-4", className)}
     >
-      <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
+      <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent hover:bg-accent/60">
         <Image
           src={product.imageUrls[0]}
           height={0}
