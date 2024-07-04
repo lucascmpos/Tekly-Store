@@ -48,7 +48,7 @@ async function OrderPage() {
     <div className="p-5 lg:container lg:mx-auto lg:py-10">
       <Badge variant="outline" className="gap-2">
         <PackageSearchIcon size={16} />
-        Meus Pedidos
+        MEUS PEDIDOS
       </Badge>
 
       <div className="mt-5 flex flex-col gap-5">

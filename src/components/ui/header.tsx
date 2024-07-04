@@ -120,7 +120,7 @@ const Header = () => {
                   className="w-full justify-start gap-2"
                 >
                   <PackageSearchIcon size={16} />
-                  Meus Pedidos
+                  Meus pedidos
                 </Button>
               </Link>
             </SheetClose>
