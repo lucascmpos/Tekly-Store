@@ -31,54 +31,65 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col gap-8 py-8 ">
-      <div className="px-5 pt-6 lg:flex lg:flex-row  lg:justify-center">
-        <Link href={"/deals"}>
+    <>
+      <div className="mx-auto max-w-[1920px]">
+        <Link href="/deals">
           <PromoBanner
-            src="/banner-inicial-home-01.png"
+            src="/deals-banner.png"
+            className="hidden h-auto w-full lg:block"
             alt="Até 55% de desconto esse mês!"
           />
         </Link>
-      </div>
-      <div className="px-5">
-        <Categories />
-      </div>
-      <div>
-        <Link href="/deals">
-          <SectionTitle>Ofertas</SectionTitle>
-        </Link>
-        <ProductList products={deals} />
-      </div>
-      <div className="px-5 pt-6 lg:flex lg:flex-row  lg:justify-center">
-        <Link href={"/deals"}>
-          <PromoBanner
-            src="/banner-home-02.png"
-            alt="Até 55% de desconto em mouses!"
-          />
-        </Link>
-      </div>
-      <div className="mt-3 lg:mx-auto">
-        <Link href="/category/keyboards">
-          <SectionTitle>Teclados</SectionTitle>
-        </Link>
-        <ProductList products={keyboards} />
-      </div>
-      <div>
-        <div className="px-5 pt-6 lg:flex lg:flex-row lg:justify-center">
-          <Link href={"/deals"}>
+
+        <div className="mx-auto flex flex-col gap-8 py-8 lg:container lg:gap-10">
+          <Link href="/deals">
             <PromoBanner
-              src="/banner-home-03.png"
-              alt="Até 20% de desconto em fones!"
+              src="/banner-home-01.png"
+              alt="Até 55% de desconto esse mês!"
+              className="px-5 lg:hidden"
             />
           </Link>
+          <div className="px-5">
+            <Categories />
+          </div>
+          <div>
+            <Link href="/deals">
+              <SectionTitle>Ofertas</SectionTitle>
+            </Link>
+            <ProductList products={deals} />
+          </div>
+          <div className="px-5 pt-6 ">
+            <Link href={"/deals"}>
+              <PromoBanner
+                src="/banner-home-02.png"
+                alt="Até 55% de desconto em mouses!"
+              />
+            </Link>
+          </div>
+          <div className="mt-3 ">
+            <Link href="/category/keyboards">
+              <SectionTitle>Teclados</SectionTitle>
+            </Link>
+            <ProductList products={keyboards} />
+          </div>
+          <div>
+            <div className="px-5 pt-6 ">
+              <Link href={"/deals"}>
+                <PromoBanner
+                  src="/banner-home-03.png"
+                  alt="Até 20% de desconto em fones!"
+                />
+              </Link>
+            </div>
+          </div>
+          <div className="">
+            <Link href="/category/mouses">
+              <SectionTitle>Mouses</SectionTitle>
+            </Link>
+            <ProductList products={mouses} />
+          </div>
         </div>
       </div>
-      <div className="lg:mx-auto">
-        <Link href="/category/mouses">
-          <SectionTitle>Mouses</SectionTitle>
-        </Link>
-        <ProductList products={mouses} />
-      </div>
-    </div>
+    </>
   );
 }
