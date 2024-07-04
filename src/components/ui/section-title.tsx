@@ -1,10 +1,17 @@
-import React from 'react'
-import { ComponentProps } from 'react'
+import { cn } from "@/lib/utils";
+import React from "react";
+import { ComponentProps } from "react";
 
-const SectionTitle = ({children, ...props}: ComponentProps<"p">) => {
+const SectionTitle = ({
+  children,
+  className,
+  ...props
+}: ComponentProps<"p">) => {
   return (
-    <p className="font-bold uppercase pl-5 mb-3 " {...props}>{children}</p>
-  )
-}
+    <p className={cn(" font-bold uppercase lg:text-xl", className)} {...props}>
+      {children}
+    </p>
+  );
+};
 
-export default SectionTitle
+export default SectionTitle;

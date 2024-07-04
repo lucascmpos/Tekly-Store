@@ -52,9 +52,9 @@ export default async function Home() {
           <div className="px-5 lg:mt-2">
             <Categories />
           </div>
-          <div>
+          <div className=" mt-3 flex flex-col gap-3 lg:gap-5">
             <Link href="/deals">
-              <SectionTitle>Ofertas</SectionTitle>
+              <SectionTitle className="pl-5">Ofertas</SectionTitle>
             </Link>
             <ProductList products={deals} />
           </div>
@@ -66,9 +66,9 @@ export default async function Home() {
               />
             </Link>
           </div>
-          <div className="mt-3 ">
+          <div className=" mt-3 flex flex-col gap-3 lg:gap-5 ">
             <Link href="/category/keyboards">
-              <SectionTitle>Teclados</SectionTitle>
+              <SectionTitle className="pl-5">Teclados</SectionTitle>
             </Link>
             <ProductList products={keyboards} />
           </div>
@@ -82,9 +82,9 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="">
+          <div className=" mt-3 flex flex-col gap-3 lg:gap-5">
             <Link href="/category/mouses">
-              <SectionTitle>Mouses</SectionTitle>
+              <SectionTitle className="pl-5">Mouses</SectionTitle>
             </Link>
             <ProductList products={mouses} />
           </div>
