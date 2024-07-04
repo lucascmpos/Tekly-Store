@@ -49,7 +49,7 @@ export default async function Home() {
               className="px-5 lg:hidden"
             />
           </Link>
-          <div className="px-5">
+          <div className="px-5 lg:mt-2">
             <Categories />
           </div>
           <div>
