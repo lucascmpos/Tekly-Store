@@ -173,10 +173,12 @@ const Header = () => {
       </Link>
 
       <div className="hidden justify-center gap-2  lg:flex lg:flex-row">
-        <Button variant="outline" className="w-full justify-start gap-2">
-          <HomeIcon size={16} />
-          Início
-        </Button>
+        <Link href={"/"}>
+          <Button variant="outline" className="w-full justify-start gap-2">
+            <HomeIcon size={16} />
+            Início
+          </Button>
+        </Link>
 
         <Link href={"/deals"}>
           <Button variant="outline" className="w-full justify-start gap-2">
