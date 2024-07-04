@@ -11,15 +11,18 @@ import { createCheckout } from "@/actions/checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { createOrder } from "@/actions/order";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
   const { data } = useSession();
   const { products, subTotal, total, totalDiscount } = useContext(cartContext);
   const [isFinishing, setIsFinishing] = useState(false);
 
+  const router = useRouter();
+
   const handleFinishPurchaseClick = async () => {
     if (!data?.user) {
-      return;
+      return router.push("/api/auth/signin");
     }
     setIsFinishing(true);
 
