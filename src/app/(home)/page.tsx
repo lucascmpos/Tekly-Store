@@ -1,9 +1,10 @@
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
-import ProductList from "../../components/ui/product-list";
-import SectionTitle from "../../components/ui/section-title";
+
 import PromoBanner from "./components/promo-banner";
 import Link from "next/link";
+import SectionTitle from "@/components/ui/section-title";
+import ProductList from "@/components/ui/product-list";
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
@@ -40,54 +41,70 @@ export default async function Home() {
             alt="Até 55% de desconto esse mês!"
           />
         </Link>
+      </div>
 
-        <div className="mx-auto flex flex-col gap-8 py-8 lg:container lg:gap-10">
-          <Link href="/deals">
+      <div className="mx-auto flex flex-col gap-8 py-8 lg:container lg:gap-10">
+        <Link href="/deals">
+          <PromoBanner
+            src="/banner-home-01.png"
+            alt="Até 55% de desconto esse mês!"
+            className="px-5 lg:hidden"
+          />
+        </Link>
+
+        <div className="px-5 lg:mt-2">
+          <Categories />
+        </div>
+
+        <div className="flex flex-col gap-3 lg:gap-5">
+          <SectionTitle className="pl-5">Ofertas</SectionTitle>
+          <ProductList products={deals} />
+        </div>
+
+        <div className="flex flex-col lg:flex-row">
+          <Link href="/category/mouses" className="flex flex-1">
             <PromoBanner
-              src="/banner-home-01.png"
-              alt="Até 55% de desconto esse mês!"
+              src="/banner-home-02.png"
+              alt="Até 55% de desconto em mouses!"
+              className="w-0 flex-1 px-5"
+            />
+          </Link>
+
+          <Link href="/category/headphones" className="flex flex-1">
+            <PromoBanner
+              src="/banner-home-03.png"
+              alt="Até 55% de desconto em fones!"
+              className="hidden w-0 flex-1 lg:block"
+            />
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-3 lg:gap-5">
+          <SectionTitle className="pl-5">Teclados</SectionTitle>
+          <ProductList products={keyboards} />
+        </div>
+
+        <div>
+          <Link href="/category/headphones">
+            <PromoBanner
+              src="/banner-home-03.png"
+              alt="Até 55% de desconto em mouses!"
               className="px-5 lg:hidden"
             />
           </Link>
-          <div className="px-5 lg:mt-2">
-            <Categories />
-          </div>
-          <div className=" mt-3 flex flex-col gap-3 lg:gap-5">
-            <Link href="/deals">
-              <SectionTitle className="pl-5">Ofertas</SectionTitle>
-            </Link>
-            <ProductList products={deals} />
-          </div>
-          <div className="px-5 pt-6 ">
-            <Link href={"/deals"}>
-              <PromoBanner
-                src="/banner-home-02.png"
-                alt="Até 55% de desconto em mouses!"
-              />
-            </Link>
-          </div>
-          <div className=" mt-3 flex flex-col gap-3 lg:gap-5 ">
-            <Link href="/category/keyboards">
-              <SectionTitle className="pl-5">Teclados</SectionTitle>
-            </Link>
-            <ProductList products={keyboards} />
-          </div>
-          <div>
-            <div className="px-5 pt-6 ">
-              <Link href={"/deals"}>
-                <PromoBanner
-                  src="/banner-home-03.png"
-                  alt="Até 20% de desconto em fones!"
-                />
-              </Link>
-            </div>
-          </div>
-          <div className=" mt-3 flex flex-col gap-3 lg:gap-5">
-            <Link href="/category/mouses">
-              <SectionTitle className="pl-5">Mouses</SectionTitle>
-            </Link>
-            <ProductList products={mouses} />
-          </div>
+
+          <Link href="/catalog">
+            <PromoBanner
+              src="/free-shipping-banner.png"
+              alt="Até 55% de desconto em mouses!"
+              className="hidden px-5 lg:block"
+            />
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-3 lg:gap-5">
+          <SectionTitle className="pl-5">Mouses</SectionTitle>
+          <ProductList products={mouses} />
         </div>
       </div>
     </>
