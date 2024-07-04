@@ -11,7 +11,7 @@ const Footer = () => {
 
         <a
           className="flex flex-row items-center justify-center gap-2 hover:underline"
-          href="https://github.com/lucascmpos/PeriWare-Store"
+          href="https://github.com/lucascmpos/Tekly-Store"
           target="_blank"
         >
           <p>Feito por Lucas Campos</p>
