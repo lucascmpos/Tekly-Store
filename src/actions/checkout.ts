@@ -14,8 +14,8 @@ export const createCheckout = async (
   const checkout = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "payment",
-    success_url: "http://tekly-store.vercle.app",
-    cancel_url: "http://tekly-store.vercle.app",
+    success_url: "http://tekly-store.vercel.app",
+    cancel_url: "http://tekly-store.vercel.app",
     metadata: {
       orderId,
     },
