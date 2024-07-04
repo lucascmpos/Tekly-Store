@@ -28,7 +28,7 @@ const OrderProductItem = ({ orderProduct }: OrderProductItemProps) => {
       <div className="flex w-full flex-col gap-1">
         <div className="flex w-fit rounded-md bg-accent px-3 py-1">
           <p className="text-xs">
-            Vendido e entregue por <span font-bold>LCTech Store</span>
+            Vendido e entregue por <span font-bold>Tekly Store</span>
           </p>
         </div>
         <p className="text-xs">{orderProduct.product.name}</p>

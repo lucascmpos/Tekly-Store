@@ -5,9 +5,9 @@ import { createContext, ReactNode, useMemo, useState, useEffect } from "react";
 
 export interface CartProduct extends ProductWithTotalPrice {
   quantity: number;
-  name: string,
-  description: string
-  imageUrls: string[]
+  name: string;
+  description: string;
+  imageUrls: string[];
 }
 
 interface ICartContext {
@@ -15,9 +15,9 @@ interface ICartContext {
   cartTotalPrice: number;
   cartBasePrice: number;
   cartTotalDiscount: number;
-  total: number,
-  subTotal: number,
-  totalDiscount: number,
+  total: number;
+  subTotal: number;
+  totalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
   increaseProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
@@ -43,14 +43,16 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     setProducts(
-      JSON.parse(localStorage.getItem("@lctech-store/cart-products") || "[]"),
+      JSON.parse(localStorage.getItem("@tekly-store/cart-products") || "[]"),
     );
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("@lctech-store/cart-products", JSON.stringify(products));
+    localStorage.setItem(
+      "@tekly-store/cart-products",
+      JSON.stringify(products),
+    );
   }, [products]);
-    
 
   const subTotal = useMemo(() => {
     return products.reduce((acc, product) => {

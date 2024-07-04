@@ -4,6 +4,7 @@ import { prismaClient } from "@/lib/prisma";
 import { PackageSearchIcon } from "lucide-react";
 import { getServerSession } from "next-auth";
 import OrderItem from "./components/order-item";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -13,15 +14,26 @@ async function OrderPage() {
   if (!session || !session.user) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2 p-5">
-        <h2 className="font-bold">Acesso Negado!</h2>
-        <p className="text-sm opacity-60">Faça login para ver seus pedidos</p>
+        <h2 className="text-lg font-bold lg:text-3xl">
+          Você ainda não fez login!
+        </h2>
+        <p className="text-base text-muted-foreground lg:text-xl">
+          Faça o{" "}
+          <Link
+            href={`/api/auth/signin`}
+            className="text-primary  hover:underline"
+          >
+            login
+          </Link>{" "}
+          para ver seus pedidos.
+        </p>
       </div>
     );
   }
 
   const orders = await prismaClient.order.findMany({
     where: {
-      userId: session.user.id,
+      userId: (session.user as any).id,
     },
     include: {
       orderProducts: {
@@ -34,7 +46,7 @@ async function OrderPage() {
 
   return (
     <div className="p-5 lg:container lg:mx-auto lg:py-10">
-      <Badge variant="secondary">
+      <Badge variant="outline" className="gap-2">
         <PackageSearchIcon size={16} />
         Meus Pedidos
       </Badge>
