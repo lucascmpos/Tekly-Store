@@ -6,7 +6,7 @@
 
 # Link to the app
 
-[PeriWare Store](https://periware-store.vercel.app/)
+[Tekly Store](https://periware-store.vercel.app/)
 
 # 🔍 Summary
 
