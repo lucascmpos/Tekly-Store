@@ -1,4 +1,5 @@
 import { ShoppingCartIcon } from "lucide-react";
+import { LuLoader2 } from "react-icons/lu";
 import { Badge } from "./badge";
 import { useContext, useState } from "react";
 import { cartContext } from "@/providers/cart";
@@ -90,11 +91,18 @@ const Cart = () => {
           </div>
           <Separator />
           <Button
-            className="mt-7 font-bold uppercase"
+            className="mt-7 gap-2 font-bold uppercase"
             onClick={handleFinishPurchaseClick}
             disabled={isFinishing}
           >
-            {isFinishing ? "Finalizando..." : "Finalizar compra"}
+            {isFinishing ? (
+              <>
+                Finalizando...
+                <LuLoader2 size={20} className="animate-spin" />
+              </>
+            ) : (
+              "Finalizar compra"
+            )}
           </Button>
         </div>
       )}
