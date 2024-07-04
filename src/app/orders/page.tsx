@@ -44,6 +44,17 @@ async function OrderPage() {
     },
   });
 
+  if (orders.length === 0) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-2 p-5">
+        <h2 className="text-lg font-bold lg:text-3xl">Você não tem pedidos.</h2>
+        <p className="text-base text-muted-foreground lg:text-xl">
+          Faça um pedido e ele aparecerá aqui.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="p-5 lg:container lg:mx-auto lg:py-10">
       <Badge variant="outline" className="gap-2">
