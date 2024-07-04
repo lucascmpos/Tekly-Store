@@ -3,7 +3,7 @@ import { IoLogoGithub } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="bg-accent px-8 py-4 text-[0.625rem] opacity-75  lg:text-sm">
+    <div className="bg-accent py-4 text-[0.625rem] opacity-75 lg:px-8  lg:text-sm">
       <div className="container mx-auto flex w-full items-center justify-between">
         <p>
           © 2024 Copyright <span className="font-semibold">Tekly Store</span>{" "}
