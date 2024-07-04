@@ -9,8 +9,8 @@ import CartProvider from "@/providers/cart";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PeriWare Store",
-  description: "PeriWare Store made by Lucas Campos",
+  title: "Tekly Store",
+  description: "Peripherals and accessories for your computer",
 };
 
 export default function RootLayout({
